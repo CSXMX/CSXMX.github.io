@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>00后学react hooks - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="00后学react hooks1. 前言作为一名刚工作...">
+  <meta name="author" content="小萌新">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">00后学react hooks</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  作者 - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">小萌新</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">00后学react hooks</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 13, 2023</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>7405</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="00后学react-hooks"><a href="#00后学react-hooks" class="headerlink" title="00后学react hooks"></a>00后学react hooks</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>作为一名刚工作的校招萌新，一个00后，一个常年用vue2的，一个react小白，我对react hooks的学习并不深入，所以下面我将从一个初学者的角度，介绍使用react hooks必备的知识点和常见的一些“坑”。</p>
+<h2 id="2-react独立渲染"><a href="#2-react独立渲染" class="headerlink" title="2. react独立渲染"></a>2. react独立渲染</h2><p><strong>结论：</strong>理解react hooks的关键是要明白hooks组件的每一次渲染都是独立的，也就是说每一次render都会有一个独立的函数作用域。</p>
+<p><strong>案例1：</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Login</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> [count,setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">changeCount</span>(<span class="hljs-params">count</span>)&#123;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>            <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;count=&#x27;</span>+ count);<br>        &#125;,<span class="hljs-number">1000</span>)<br>    &#125;<br>    <span class="hljs-keyword">return</span> (<br><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>count = &#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span>=&gt;</span>setCount(count+1)&#125;&gt;count+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span>=&gt;</span>changeCount(count)&#125;&gt;alert <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><br>	)<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>点击第一个按钮，变量count就会加1。<br>点击第二个按钮，变量count的值就会在一秒后alert出来。</p>
+<p><img    class="lazyload" data-original="https://pic4.58cdn.com.cn/nowater/lbgfe/image/n_v3d7f1a8772d754146bd90b70a5c2efd19.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">img</span></p>
+<p>如图所示，如果在这一秒内再次点击两下按钮1，就会发现count的值从4变成6，但是弹出的结果中count的值并没有发生变化，这就证明了前面的结论，count的值只与本次渲染有关，我们获取的并不是最新的值。</p>
+<p>**案例2: ** 知道了react hooks的独立渲染后，我们就会想到每次渲染后函数的声明是重复的，所以如果函数组件内的state和props无相关性，可以直接把函数声明在组件的外部。【下面代码只是提供思路，并不是推荐写法】</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">changeCount</span>(<span class="hljs-params">count</span>)&#123;<br>	<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>		<span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;count=&#x27;</span>+ count);<br>	&#125;,<span class="hljs-number">1000</span>)<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Login</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-keyword">const</span> [count,setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>count = &#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span>=&gt;</span>setCount(count+1)&#125;&gt;count+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span>=&gt;</span>changeCount(count)&#125;&gt;alert <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>	)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;button onClick=&#123;<span class="hljs-function">()=&gt;</span><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(count)&#125;&gt;打印count&lt;/button&gt;<br></code></pre></td></tr></table></figure>
+
+<p>​    根据某位同学的实习经历，他的mentor说像上面这种代码在组里项目是明令禁止的，无论组里项目是react hooks，还是类式组件。</p>
+<p>​    其实这是案例1和案例2出现的共同问题，也就是这个功能看起来可以正常使用的箭头函数。如果每次渲染时都需要重新创建新的函数，即前面说的函数重复声明问题，那么根据垃圾回收机制，就需要对前面一个函数进行垃圾回收，这样就会对垃圾回收器造成一定负担。</p>
+<p>​    在这一行代码中，button的属性存在一个箭头函数，例如当类式组件使用pureComponent纯组件进行性能优化时，那么这个button属性中的箭头函数就会让react认为每一次渲染都需要创建一个新的箭头函数，也就是说这样的写法会导致pureComponent完全失效，引起不必要的重复渲染。</p>
+<p>​    至于解决办法，也很简单，把箭头函数提出去，类式组件提到render方法外面，函数组件就是提到函数外面。</p>
+<p><strong>案例3</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">changeCount</span> = (<span class="hljs-params">count</span>)=&gt;&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-function">()=&gt;</span>&#123;<br>		<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>			<span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;count=&#x27;</span>+ count);<br>		&#125;,<span class="hljs-number">1000</span>)<br>    &#125;<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Login</span>(<span class="hljs-params"></span>) &#123;<br>	<span class="hljs-keyword">const</span> [count,setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>count = &#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span>=&gt;</span>setCount(count+1)&#125;&gt;count+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;changeCount(count)&#125;</span>&gt;</span>alert <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>	)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​    可以看到，案例3的代码并没有完全解决所谓的箭头函数问题，setCount函数为什么没有放在函数组件外呢？</p>
+<p>hhhh，因为setCount并非普通函数，而是useState提供的，无法脱离函数组件本身。所以案例3的代码还不是最终的解决方案。</p>
+<h2 id="3-useState的异步更新问题"><a href="#3-useState的异步更新问题" class="headerlink" title="3. useState的异步更新问题"></a>3. useState的异步更新问题</h2><p>​    作为使用react的开发者，每次修改state的数据，都不会立即在页面上显示更新，更新后立即打印同样也显示的是修改前的值。<br>​    这是因为react的事件分为合成事件和原生事件，原生事件是同步的，合成事件和用的钩子函数的都是异步的，所以我们在调用setState的过程中不要试图去立即获取数据状态的变化。<br>​    在真实场景下我们使用setState修改数据时会依赖于旧的数据，这时通常采用setState的函数形式。这样，我们就相当于告诉react，count只是有一个递增状态，count值的变化不应该影响useEffect的值，也就可以让count从依赖项数组里去除，不会造成定时器的重复开启和清除。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;button onClick=&#123;<span class="hljs-function">()=&gt;</span><span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span>=&gt;</span>&#123;<br>	<span class="hljs-keyword">return</span> count + <span class="hljs-number">1</span>;<br>&#125;)&#125;&gt;count + <span class="hljs-number">1</span>&lt;/button&gt;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-useEffect、useMemo、useCallback三兄弟"><a href="#4-useEffect、useMemo、useCallback三兄弟" class="headerlink" title="4. useEffect、useMemo、useCallback三兄弟"></a>4. useEffect、useMemo、useCallback三兄弟</h2><p><strong>useEffect</strong></p>
+<p>​    说到react hooks，真正在项目中最常用的其实只有useEffect和useState。上文提到hooks的每一次渲染都是独立的，那么一个hooks组件是如何把每一次渲染关联起来的呢？答案就是useEffect。<br>​    useEffect是一个可以让开发者在函数组件里执行副作用的hook，副作用是在每次组件渲染之后才会生效，第一个参数是要执行的函数体，第二个参数是一个依赖项数组。</p>
+<p>结论：<br>1.第二个参数为空数组，首先渲染后会执行函数体。<br>2.第二个参数不写，每次渲染后会都会执行。<br>3.填了依赖项之后，只有依赖项发生改变才会执行。<br>4.useEffect的函数体可以返回一个函数，叫清除函数，作用是消除副作用，也就是在下一个effect执行之前，消除上一个effect。例如在useEffect里开一个定时器，如果不在清除函数中清除前面的定时器，就会造成组件的每次渲染都会新开一个定时器。</p>
+<p><strong>useMemo</strong></p>
+<p>​    在简单介绍useMemo之前，我们可以理解下memo，memo类似于类式组件中的pureComponent纯组件和componentShouldUpdate功能，会对传入的props进行一次对比，从而判断出组件是否需要重新渲染。</p>
+<p>​    与useEffect写法很类似，第一个参数是callback函数，第二个参数是一个依赖项数组，根据数组里的依赖项是否发生变化来判断是否需要更新回调函数，这听起来是不是很像useEffect。区别在于useMemo是记录函数体的返回值，避免大量的重复计算，这与useEffect完全不同。</p>
+<p>​    合理的使用useMemo是可以减少不必要的循环和重复计算，避免很多不必要的开销。</p>
+<p><strong>useCallback</strong></p>
+<p>​    useCallback与useMemo极其相似，唯一的不同点是useMemo返回的是函数运行的结果，useCallback返回是一个函数。经过useCallback包裹的函数，在依赖项不发生改变时，函数不会再次刷新，这就为我们前面案例1中描述的函数重复声明的问题提供了一个新的解决思路，用useCallback包裹函数。代码如下。</p>
+<p><strong>案例4（推荐写法）:</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Login</span>(<span class="hljs-params"></span>) &#123;<br>	<span class="hljs-keyword">const</span> [count,setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">const</span> sCount = <span class="hljs-title function_">useCallback</span>(<span class="hljs-function">(<span class="hljs-params">count</span>) =&gt;</span> &#123;<span class="hljs-title function_">setCount</span>(count+<span class="hljs-number">1</span>)&#125;, []);<br>  	<span class="hljs-keyword">const</span> changeCount = <span class="hljs-title function_">useCallback</span>(<span class="hljs-function">(<span class="hljs-params">count</span>)=&gt;</span>&#123;<br>    	<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>    	    <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;count=&#x27;</span>+ count);<br>	    &#125;,<span class="hljs-number">1000</span>)<br>    &#125;,[]);<br>    <span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>count = &#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;sCount(count)&#125;</span>&gt;</span>count + 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;changeCount(count)&#125;</span>&gt;</span>alert <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    )<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>通过使用useCallback，依赖项为空数组，所以sCount函数只会在首次渲染时声明一次。</p>
+<h2 id="5-useRef的妙用"><a href="#5-useRef的妙用" class="headerlink" title="5. useRef的妙用"></a>5. useRef的妙用</h2><p>​    使用useRef 可以获取当前元素的所有属性，并且返回一个可变的ref对象，并且这个对象只有current属性，可以设置初始值。<br>​    除了获取对应的属性值外，useRef还有一个比较重要但很容易忽视的特性，那就是缓存数据。与之前学过的createRef不同的地方在于useRef每次返回的是相同的引用，ref对象的值发生改变，不会触发组件的重新渲染。<br>在封装一个自定义hooks时，根据2.1里提到的定时器案例，用useState实现变量的控制，获取变量并不是最新的，如果需要获取更新后的值则需要让整个组件重新渲染，在这种情况下，用useRef将会是一个不错的选择。为了随时确保获取的值是最新的，我们可以进行一个简单的封装。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">useLastest</span> = (<span class="hljs-params">value</span>) =&gt;&#123;<br>	<span class="hljs-keyword">const</span> ref = <span class="hljs-title function_">useRef</span>(value);<br>	ref.<span class="hljs-property">current</span> = value;<br>	<span class="hljs-keyword">return</span> ref;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>类似的，我们可以结合useEffect的特性，组件渲染后才会执行本次副作用。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">usePrevious</span> = (<span class="hljs-params">value</span>) =&gt; &#123;<br>  <span class="hljs-keyword">const</span> ref = <span class="hljs-title function_">useRef</span>(value);<br>  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>  		ref.<span class="hljs-property">current</span> = value;<br>  &#125;,[value]);<br>	<span class="hljs-keyword">return</span> ref.<span class="hljs-property">current</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>所以return ref current指向的是value改变之前的值。<br>使用usePrevious，可以实现记录函数组件前一次渲染的state。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="6-useEffect的滥用"><a href="#6-useEffect的滥用" class="headerlink" title="6. useEffect的滥用"></a>6. useEffect的滥用</h2><p>首先，copy一下react新官网的一句话。<br>​    If there is no external system involved (for example, if you want to update a component’s state when some props or state change), you shouldn’t need an Effect。<br>简单翻译一下，就是有这样一个场景。当props和state发生改变时，你需要更新组件的状态，这时不应该使用useEffect。</p>
+<p><strong>提出一个场景</strong></p>
+<p>​    当某个项目的一个函数组件接受到props时，并且需要根据props的值来计算一个变量时。一个react萌新直接在顶层用了一个函数，参数是props，计算出了变量值。</p>
+<p>​    一个react”大佬”看后笑了笑，直言props很少改变，你这不是重复计算了？看我的！【了却前端天下事，赢得生前身后名，可怜小萌新！】</p>
+<p><strong>萌新的写法：</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">TodoList</span>(<span class="hljs-params">&#123; param1，param2 &#125;</span>) &#123;<br>   <span class="hljs-keyword">const</span> computedParam = <span class="hljs-title function_">func</span>( param1, param2);<br>  .......<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>“大佬”的写法：</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">TodoList</span>(<span class="hljs-params">&#123; param1，param2 &#125;</span>) &#123;<br>  <span class="hljs-keyword">const</span> [computedParam, setComputedParam] = <span class="hljs-title function_">useState</span>([]);<br>    <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>          <span class="hljs-title function_">setComputedParam</span>( <span class="hljs-title function_">func</span>( param1, param2));<br>  	&#125;, [param1，param2]);<br>   .......<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>“大佬”的错误：</strong></p>
+<p>​    react官方认为useEffect处理的是组件渲染后的事情，如果在useEffect里再次执行了改变state的方法，那么react需要再进行一次渲染，也就是说react上一次的渲染，上一次对DOM的修改完全是不必要的，这就是重复渲染！</p>
+<p><strong>我的写法：</strong></p>
+<p>​    useMemo的返回值是函数体的返回结果，当param1，param2的值发生改变时，才会重新计算变量的值，这不就达到我们的要求了吗？</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">TodoList</span>(<span class="hljs-params">&#123; param1，param2 &#125;</span>) &#123;<br>  <span class="hljs-keyword">const</span> [computedParam, setComputedParam] = <span class="hljs-title function_">useState</span>([]);<br>    <span class="hljs-keyword">const</span> computedParam = <span class="hljs-title function_">useMemo</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>          <span class="hljs-keyword">return</span> <span class="hljs-title function_">func</span>( param1, param2);<br>  	&#125;, [param1，param2]);<br>   .......<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>具体案例推荐看react新官方文档：</strong><br><a target="_blank" rel="noopener" href="https://beta.reactjs.org/learn/you-might-not-need-an-effect">https://beta.reactjs.org/learn/you-might-not-need-an-effect</a></p>
+<p>当你认真看了新官方文档后，你就会发现对于萌新的写法，react的评价是 在很多情况下，这段代码很好！</p>
+<p>是的！即使存在重复计算的问题，但如果这只是一个复杂度较低的计算，那么你可能不需要useMemo，因为useMemo的使用也是有代价的，强行使用只会造成组件性能的下降。</p>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h2><ol>
+<li>使用useState不追求立即获取修改后的值。</li>
+<li>标签上的事件绑定【极不推荐】采用箭头函数的形式，因为这会造成整个组件必定会重复渲染。</li>
+<li>useEffect中不应该出现改变state的函数，因为这代表组件上一次渲染是完全不必要的，造成重复渲染问题。</li>
+<li>useMemo记录的是函数体的返回值，useCallback记录的是函数本身，可以解决 使用react hooks的函数重复创建，并且不能把函数提取到函数组件外 的问题。</li>
+<li>不需要在Effects里来处理用户事件，因为在 Effect 运行时，您不知道用户做了什么（例如，单击了哪个按钮）。</li>
+<li>useRef是一个神奇的工具，使用useRef 可以获取当前元素的所有属性，可以获取到最新的元素属性，并且ref对象的值发生改变，不会触发组件的重新渲染。</li>
+<li>useMemo和useCallback的使用是有代价的，过度的使用可能会造成组件的性能还不如有重复计算或者重复创建函数的组件。</li>
+</ol>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>小萌新</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2023/02/13/post_4/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;02&#x2F;13&#x2F;post_4&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;02&#x2F;13&#x2F;post_4&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/00%E5%90%8E-react-hoooks/" rel="tag">00后, react ,hoooks</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2023/02/13/post_3/"><i class="iconfont iconleft"></i>00后浅学Vite热更新</a>
+    <a></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#00%E5%90%8E%E5%AD%A6react-hooks"><span class="toc-text">00后学react hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-react%E7%8B%AC%E7%AB%8B%E6%B8%B2%E6%9F%93"><span class="toc-text">2. react独立渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-useState%E7%9A%84%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98"><span class="toc-text">3. useState的异步更新问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-useEffect%E3%80%81useMemo%E3%80%81useCallback%E4%B8%89%E5%85%84%E5%BC%9F"><span class="toc-text">4. useEffect、useMemo、useCallback三兄弟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-useRef%E7%9A%84%E5%A6%99%E7%94%A8"><span class="toc-text">5. useRef的妙用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-useEffect%E7%9A%84%E6%BB%A5%E7%94%A8"><span class="toc-text">6. useEffect的滥用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%80%BB%E7%BB%93"><span class="toc-text">7. 总结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  作者 - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">小萌新</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
