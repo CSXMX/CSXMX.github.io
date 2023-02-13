@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>00后项目性能优化经验 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="00后项目性能优化经验1. 故事开头作为一名刚转正的校...">
+  <meta name="author" content="小萌新">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">00后项目性能优化经验</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  作者 - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">小萌新</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">00后项目性能优化经验</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>February 13, 2023</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>5749</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="00后项目性能优化经验"><a href="#00后项目性能优化经验" class="headerlink" title="00后项目性能优化经验"></a>00后项目性能优化经验</h1><h2 id="1-故事开头"><a href="#1-故事开头" class="headerlink" title="1. 故事开头"></a>1. 故事开头</h2><p>作为一名刚转正的校招前端萌新，我对前端项目性能优化肯定没啥丰富经验，所以在这里只是记录下在公司项目开发中发现的主要代码问题。</p>
+<p>行百里者半九十，极致的性能优化肯定是困难重重的。</p>
+<p>通过修改和优化代码之前的逻辑，获得的性能提升往往是巨大的。</p>
+<h2 id="2-项目背景"><a href="#2-项目背景" class="headerlink" title="2. 项目背景"></a>2. 项目背景</h2><p>以下介绍的案例来源于一个真实的公司项目。</p>
+<p>项目本身可以说是一个node全栈项目，采用express框架，包含n个中间件，页面采用的是vue2，图表的绘制采用的是版本较低的echarts。</p>
+<p>该项目的用户权限控制和相关数据，菜单栏的来源与获取等功能 都是由前端开发和管理的。</p>
+<p>该项目的数据来源可以说是相当复杂，测试环境和线上环境访问的数据是完全隔离的，甚至访问的数据库都不是一个种类，测试环境均为mysql数据库，前端和后端有各自要负责的数据库，页面主要展示的数据来自于后端负责的数据库。</p>
+<p>后端数据库，数据的主要产出依靠牛逼的数据分析师，操作数据库的相关代码依赖于分析师提供的庞大sql。</p>
+<p>页面获取后端数据库的方式主要可以分为两种。</p>
+<p>（1）利用node搭建访问后端数据库的接口，同时需要根据不同页面对应的不同业务，拼接出多个庞大的sql，然后获取到数据后进行数据格式处理，最后交由前端进行页面渲染（趋势图、折线图、地图、表格等）。</p>
+<p>（2）将对庞大sql的解析，数据库访问性能的优化，数据的缓存等 全部交由后端，前端利用node提供面向页面的定制化格式的数据，此时的node也就成为了中台背景下的BFF(Backends for frontends)，服务于前端的后端。</p>
+<p><strong>BFF模式</strong></p>
+<p><strong>背景</strong></p>
+<p>随着前端技术发展，不同前端对于后端的要求差异很大，而后端服务很难提供满足多个前端的统一接口，BFF 则可以针对前端的特定需求，作出适配。</p>
+<p><strong>优点</strong></p>
+<p>（1）对前端UI展示逻辑的不同，对后端API返回的数据进行裁剪和重新组织，提供面向前端的定制化格式的数据。（2）根据前端业务需求，对后端多个API返回的数据进行聚合。（3）对一些特定场景的数据进行缓存，提高性能，进而提升用户体验。（4）BFF隔离了前端UI展示对后端API的定制化需求，可以很好地支持后端服务的演进。</p>
+<p>所以该项目的后端在封装一些通用代码时更加得心应手，更多精力可以专注在接口性能的优化上。</p>
+<p>虽然会造成数据的偏差，但是在bff层处理起来并不复杂。</p>
+<h2 id="3-多个下拉框间的联动问题"><a href="#3-多个下拉框间的联动问题" class="headerlink" title="3. 多个下拉框间的联动问题"></a>3. 多个下拉框间的联动问题</h2><p>（1）该项目的主要页面，顶部都是由多个下拉框或者单选选框组成的，下拉框的数据来源于后端数据库。</p>
+<p>（2）多个下拉框间通常都有联动效果，例如，城市线、城市类型、大区、城市、商家、门店。</p>
+<p>选择城市为北京时，城市线（一线），城市类型（直营城市），大区（华北）。</p>
+<p>城市线列表变为所有的一线城市、商家列表变为北京下的所有商家，其他情况以此内推。</p>
+<p>（3）现有问题是早期开发的页面，对于这种联动实现是依赖于后端接口实现的，即每切换一次城市就会发送多次网络请求，获取新数据后对相应变量进行重新赋值。</p>
+<p>（4）对于这种方式实现的联动效果，其实弊端是很明显的，那就是网络请求次数过多。因为对于该项目的用户而言，多个下拉框的数据切换是最为频繁的页面交互之一。一旦出现某个网络请求的超时，老数据库执行查询SQL的速度过于缓慢等情况，就会造成页面整体卡住，这也是前端接下来需要优化的地方，确保页面主体渲染完毕后再去查询顶部下拉框的数据。</p>
+<p>（5）除了这一明显弊端，从代码逻辑的角度来说，这一操作太有定制性了。因为这种页面的联动并不是每次都是这种一对一的，例如，一级品类（保洁清洗，家庭服务）和二级品类（保姆），保姆既属于保洁清洗，又属于家庭服务，这种情况下的联动就需要单独写套逻辑了，这是后端又要想办法修改sql拼接的逻辑，天天搞这种很烧脑！</p>
+<p>（6）综上所述，我们达成的方案是后端根据下拉框分成多个接口，每个接口包含该项的全部数据，也就是说所有的联动都交给前端完成。可能你会觉得首次渲染时获取的数据量较大，可能对页面性能造成影响，可是实际情况反而是因为sql拼接的逻辑简单了，执行sql的速度更快，接口数据返回的速度更快。同时，因为下拉框数据的查询完全交给了后端，后端采用了数据缓存策略、近似值计算等优化手段，这使接口性能得到了极大提升。</p>
+<p>（7）前端方面，对于首次渲染时获取的下拉框数据，可采用vuex进行持久化存储，这样在进入其他页面时，也能随时获取到需要的数据，而不需要进行二次请求，这样就尽可能减少了网络请求的次数。同时，可以在vuex中设计一个标识变量（false），通过网络请求获取到全部数据后，变为true，这样访问老页面时检测到vuex中的标识变量为true就不用重新请求了。</p>
+<h2 id="4-node接口获取速度缓慢问题"><a href="#4-node接口获取速度缓慢问题" class="headerlink" title="4. node接口获取速度缓慢问题"></a>4. node接口获取速度缓慢问题</h2><p>（1）因为开发环境和线上环境访问的数据库不一样，所以有些接口在本地调试时返回数据的速度可能会慢一些。但是，本地开发，获取菜单栏数据的接口用了快10秒是不是就有点离谱了。</p>
+<p>（2）并且，有的人电脑访问起来挺快的，就我的电脑访问起来最慢？？？抱着是不是闹鬼的心态，我通过断点调试一步步查看了接口的代码，终于让我定位到出现延迟问题的几处代码。</p>
+<p>（3）这几处代码的共同之处是在for循环中执行了访问数据库的代码，循环次数也受用户权限的影响，因为我作为开发人员拥有最高权限，所以导致我每次访问该接口会在一个个for循环中，经历了上百次await ……</p>
+<p>（4）梳理代码逻辑之后，我发现有很多冗余的请求，因为在数据库中即使是不同行的数据，也可能会有很多相同的字段，原开发者对于这种数据库查询结果的取重工作留到了最后，却没意识到这产生了很多不必要的sql查询。</p>
+<p>（5）经过这次简单优化后，访问接口速度自然得到极大提升，但是我对于一个项目的菜单栏在开发环境下不能秒开的情况还是不满意，毕竟菜单栏又没有多少数据。</p>
+<p>（6）是啊！跟菜单栏相关的几张表，行数最多也就百余条，为什么要在for循环里遍历执行访问数据库的操作呢？直接一次性取出表中所有的内容，然后用map存储数据。</p>
+<p>（7）果然，效果很好！获取用户菜单数据缩短至1秒以内，可能这就是用空间换时间吧。</p>
+<h2 id="5-接口问题的反思"><a href="#5-接口问题的反思" class="headerlink" title="5. 接口问题的反思"></a>5. 接口问题的反思</h2><p>对于上面刚提到的问题，虽然优化的结果是令人满意的，但是有个问题是被我避开了，而不是被我解决了。</p>
+<p>那就是在for循环中执行上百次的查询数据库的操作，为什么会这么慢呢？？？</p>
+<p>通过本地的demo测试，我终于发现了问题关键所在。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">const list = [1, 2, 3]<br>const square = num =&gt; &#123;<br>    return new Promise((resolve, reject) =&gt; &#123;<br>        setTimeout(() =&gt; &#123;<br>            resolve(num * num)<br>        &#125;, 1000)<br>    &#125;)<br>&#125;<br>let startTime = new Date()<br>async function test() &#123;<br>    for (let i = 0; i &lt; list.length; i++) &#123;<br>        console.log(`$&#123;(new Date()-startTime)/1000&#125;s`);<br>        console.log(&#x27;test1&#x27;, await square(list[i]))<br>    &#125;<br>    for (let item of list) &#123;<br>        console.log(`$&#123;(new Date()-startTime)/1000&#125;s`);<br>        console.log(&#x27;test2&#x27;, await square(item))<br>    &#125;<br>    console.log(`$&#123;(new Date()-startTime)/1000&#125;s`);<br>    list.forEach(async x =&gt; &#123;<br>        console.log(&#x27;test3&#x27;, await square(x))<br>    &#125;)<br>    list.map(async item =&gt; &#123;<br>        console.log(&#x27;test4&#x27;, await square(item))<br>    &#125;)<br>    await Promise.all(list.map(async item =&gt; console.log(&#x27;test5&#x27;, await square(item))))<br>    console.log(`$&#123;(new Date()-startTime)/1000&#125;s`);<br>&#125;<br>test()<br></code></pre></td></tr></table></figure>
+
+<p><strong>结论：</strong> 如下图所示，test1和test2对应的for循环是串着执行的，test3、test4、test5对应的for循环是并发执行的。<br>如果square函数对应的是执行数据库的查询sql，每一次发起请求都需要等待上一个请求到达，这明显是不合理的，所以这最终导致了代码整体运行速度的缓慢，所以在项目中如果需要一次性发送大量网络请求，并且这些请求造成的影响是毫不相关的，那就应该果断采用并发请求！</p>
+<p><img    class="lazyload" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/39dd9f979907458088cdf1e65d06048e~tplv-k3u1fbpfcp-watermark.image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">截图.png</span></p>
+<h2 id="6-彩蛋：经典手写题回归"><a href="#6-彩蛋：经典手写题回归" class="headerlink" title="6. 彩蛋：经典手写题回归"></a>6. 彩蛋：经典手写题回归</h2><p>JS手写一个带并发限制的异步调度器Scheduler，保证同时运行的任务最多有n个。</p>
+<p><strong>参考文章：</strong> <a target="_blank" rel="noopener" href="https://juejin.cn/post/6951630919468285966">https://juejin.cn/post/6951630919468285966</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">class Scheduler &#123;<br>    constructor(num) &#123;<br>        this.max = num || 2; //  任务队列的最大长度<br>        this.count = 0;<br>        this.tasks = []; // 存储【待运行】的任务队列<br>    &#125;<br>    add(promiseCreator) &#123;<br>        return new Promise(resolve =&gt; &#123;<br>            promiseCreator.resolve = resolve;<br>            if (this.count &lt; this.max) &#123;<br>                // 未达到最大并行数，直接运行任务<br>                this.start(promiseCreator);<br>            &#125; else &#123;<br>                this.tasks.push(promiseCreator);<br>            &#125;<br>        &#125;);<br>    &#125;<br>​<br>    async start(promiseCreator) &#123;<br>        this.count += 1;<br>        await promiseCreator();<br>        // 执行任务队列的方法<br>        promiseCreator.resolve();<br>        this.count -= 1;<br>        if (this.tasks.length) &#123;<br>            // 先入队的任务队列先执行<br>            this.start(this.tasks.shift());<br>        &#125;<br>    &#125;<br>​<br>&#125;<br>​<br>function timeout(time) &#123;<br>    return new Promise(resolve =&gt; &#123;<br>        setTimeout(resolve, time);<br>    &#125;);<br>&#125;<br>let start = new Date()<br>let timer = () =&gt; ((new Date() - start) / 1000).toFixed(1)<br>const scheduler = new Scheduler(2);<br>const addTask = (time, order) =&gt; &#123;<br>    scheduler.add(() =&gt; timeout(time)).then(() =&gt; console.log(timer(), &#x27;秒：&#x27;, order));<br>&#125;;<br>addTask(1000, &#x27;1&#x27;);<br>addTask(500, &#x27;2&#x27;);<br>addTask(300, &#x27;3&#x27;);<br>addTask(400, &#x27;4&#x27;);<br>/**<br> * 预期结果：一开始任务1，任务2入队。<br> * 0.5s后，任务2完成,任务3入队。<br> * 0.8s后，任务3完成，任务4入队。<br> * 1s后，任务1完成<br> * 1.2s后，任务4完成<br> */<br></code></pre></td></tr></table></figure>
+
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h2><p><strong>前端：尽可能减少访问数据库的次数，充分利用缓存机制，合理使用并发请求。</strong></p>
+<p><strong>后端：尽可能避免前端UI展示对后端API的定制化需求，有条件的话将定制逻辑放BFF层。</strong></p>
+<p><strong>好的编码习惯是要跟随你整个程序员生涯的。</strong></p>
+<p><strong>生活就是这样子，想要有所改进，你总要鼓起勇气去面对这些存在的问题，至少不要让问题变得更棘手。</strong></p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>小萌新</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2023/02/13/post_0/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;02&#x2F;13&#x2F;post_0&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;02&#x2F;13&#x2F;post_0&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/00%E5%90%8E-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">00后,性能优化</a></li></ul> 
+
+        
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#00%E5%90%8E%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C"><span class="toc-text">00后项目性能优化经验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%85%E4%BA%8B%E5%BC%80%E5%A4%B4"><span class="toc-text">1. 故事开头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">2. 项目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E4%B8%AA%E4%B8%8B%E6%8B%89%E6%A1%86%E9%97%B4%E7%9A%84%E8%81%94%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="toc-text">3. 多个下拉框间的联动问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-node%E6%8E%A5%E5%8F%A3%E8%8E%B7%E5%8F%96%E9%80%9F%E5%BA%A6%E7%BC%93%E6%85%A2%E9%97%AE%E9%A2%98"><span class="toc-text">4. node接口获取速度缓慢问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98%E7%9A%84%E5%8F%8D%E6%80%9D"><span class="toc-text">5. 接口问题的反思</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BD%A9%E8%9B%8B%EF%BC%9A%E7%BB%8F%E5%85%B8%E6%89%8B%E5%86%99%E9%A2%98%E5%9B%9E%E5%BD%92"><span class="toc-text">6. 彩蛋：经典手写题回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%80%BB%E7%BB%93"><span class="toc-text">7. 总结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  作者 - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">小萌新</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
